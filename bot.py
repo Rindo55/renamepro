@@ -16,6 +16,7 @@ class Bot(Client):
         )
     async def start(self):
         await super().start()
+        me = await self.get_me()    
         print(f"{me.first_name} | @{me.username} 𝚂𝚃𝙰𝚁𝚃𝙴𝙳...⚡️")
        
     async def stop(self, *args):
