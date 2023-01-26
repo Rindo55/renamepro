@@ -14,6 +14,7 @@ async def rename_file(bot, msg):
        await msg.reply_text("Please Reply To An File or video or audio With filename + .extension eg:-(`.mkv` or `.mp4` or `.zip`)")
     og_media = getattr(reply, reply.media.value)
     new_name = msg.text.split(" ", 1)[1]
+    new_name = new_name.replace(".mkv", "")
     sts = await msg.reply_text("Trying to Downloading.....")
     c_time = time.time()
     downloaded = await reply.download(file_name=new_name, progress=progress_message, progress_args=("Download Started.....", sts, c_time)) 
