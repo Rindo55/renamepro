@@ -25,22 +25,16 @@ async def rename_file(bot, msg):
             await sts.edit(text=f"Your caption Error unexpected keyword ●> ({e})")
             return
     else:
-        cap = f"{new_name}\n\n💽 size : {filesize}"
-    raw_thumbnail = temp.THUMBNAIL 
-    if raw_thumbnail:
-        og_thumbnail = await bot.download_media(raw_thumbnail)
-    else:
-        og_thumbnail = await bot.download_media(og_media.thumbs[0].file_id)
+        cap = f"{new_name}"
     await sts.edit("Trying to Uploading")
     c_time = time.time()
     try:
-        await bot.send_document(msg.chat.id, document=downloaded, thumb=og_thumbnail, caption=cap, progress=progress_message, progress_args=("Uploade Started.....", sts, c_time))        
+        await bot.send_document(msg.chat.id, document=downloaded, caption=cap, progress=progress_message, progress_args=("Uploade Started.....", sts, c_time))        
     except Exception as e:  
         await sts.edit(f"Error {e}") 
         return               
     try:
         os.remove(downloaded)
-        os.remove(og_thumbnail)
     except:
         pass
     await sts.delete()
