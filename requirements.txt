@@ -1,3 +1,4 @@
 pyrogram==2.0.0
 Tgcrypto
 aiohttp 
+#  pyrogram-2.0.99
